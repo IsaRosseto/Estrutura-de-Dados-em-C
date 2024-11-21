@@ -2,207 +2,106 @@
 
 ---
 
-### **1. Estruturas de Dados**
+### **1. O que são Listas Estáticas Sequenciais (LES)?**
 
-- **Definição:** São formas organizadas de armazenar, acessar e manipular dados de forma eficiente.
-- **Por que usar?** Para resolver problemas de forma estruturada, otimizando recursos e operações.
+- **Definição:** Uma **Lista Estática Sequencial (LES)** é um tipo de lista linear onde os elementos são armazenados de forma sequencial em um vetor, ou seja, em posições de memória contíguas. Essa estrutura é caracterizada pelo seu tamanho fixo, definido no momento de criação, e pelo acesso direto a qualquer elemento através do índice.
+  
+- **Principais Características:**
+  - **Acesso Direto:** É possível acessar qualquer elemento da lista diretamente, o que resulta em operações de leitura rápidas e eficientes (complexidade O(1)).
+  - **Tamanho Fixo:** A capacidade é definida no momento de criação, sem possibilidade de aumento posterior.
+  - **Memória Contígua:** Os elementos são armazenados em posições de memória contíguas, otimizando a eficiência de acesso devido à localidade espacial.
 
----
+- **Exemplo Visual:**
 
-### **2. Lista**
+  Considere uma lista de 5 elementos armazenada em um vetor:
 
-- **O que é?** Uma sequência de elementos em uma ordem específica.
-- **Principais implementações:**
-  1. **Lista Estática:** Usa arrays e tem tamanho fixo.
-  2. **Lista Dinâmica:** Usa ponteiros para alocar memória conforme a necessidade.
-
----
-
-### **3. Lista Linear**
-
-- **🔎 Características:**
-  1. 🛠️ Organização sequencial (elemento após elemento).
-  2. 🤖 Cada elemento tem no máximo um predecessor (anterior) e um sucessor (seguinte).
-- **👩‍💻 Importância:** É uma estrutura básica usada para criar outras estruturas mais complexas.
-
----
-
-### **4. Tipos de Listas Lineares**
-
-1. **📅 Lista Estática Sequencial (LES):**
-   - 🛠️ Elementos armazenados em memória contígua usando arrays.
-2. **🤖 Lista Estática Encadeada (LEE):**
-   - Combina arrays com ponteiros para representar conexões.
-3. **📀 Lista Dinâmica Encadeada (LDE):**
-   - Usa alocação dinâmica de memória e ponteiros.
-4. **🤜🤛 Lista Dinâmica Duplamente Encadeada (LDDE):**
-   - Cada elemento tem dois ponteiros: um para o anterior e outro para o seguinte.
-
----
-
-### **5. Características da LES**
-
-1. **🔠 Acesso Direto:**
-   - Elementos acessados pelo índice. Exemplo: `Lista[2]` acessa diretamente o terceiro elemento.
-2. **📅 Tamanho Fixo:**
-   - Definido no momento da criação. Não pode crescer ou diminuir.
-3. **🧐 Uso de Memória Contígua:**
-   - Elementos armazenados em sequência na memória, o que melhora a eficiência de acesso devido à localidade espacial.
-
----
-
-### **6. Vantagens da LES**
-
-1. **🚀 Eficiência no Acesso:**
-   - Acesso rápido (O(1)) a qualquer elemento.
-2. **👍 Simplicidade:**
-   - Fácil de implementar e manipular, especialmente em linguagens como C.
-
----
-
-### **7. Desvantagens da LES**
-
-1. **💩 Flexibilidade Limitada:**
-   - Tamanho fixo pode desperdiçar memória ou ser insuficiente.
-2. **💡 Inserção e Remoção Ineficientes:**
-   - No meio ou início da lista, exige deslocamento de elementos.
-
----
-
-### **8. Operações Básicas da LES**
-
-1. **🛠️ Inserção:**
-
-   - **No final:** Simples, basta ocupar o próximo índice vazio.
-   - **No meio/início:** Requer deslocar elementos para abrir espaço.
-   - **Complexidade:**
-     - Final: O(1).
-     - Meio/Início: O(n).
-
-   **Exemplo Visual e Código em C: Inserindo um elemento no final**
-   ```plaintext
-   Lista: [2, 4, 5, 8, _]
-   Inserindo 10 no final:
-   Lista: [2, 4, 5, 8, 10]
-   ```
-   ```c
-   int lista[5] = {2, 4, 5, 8}; // Definindo um array com 4 valores e um espaço vazio
-   lista[4] = 10; // Inserindo o valor 10 na última posição disponível
-   ```
-   - Aqui, estamos adicionando o valor `10` na última posição disponível da lista.
-
-2. **🛠️ Remoção:**
-
-   - **No final:** Simples, basta liberar a última posição.
-   - **No meio/início:** Requer deslocar elementos para preencher o espaço.
-   - **Complexidade:**
-     - Final: O(1).
-     - Meio/Início: O(n).
-
-   **Exemplo Visual e Código em C: Removendo um elemento do meio**
-   ```plaintext
-   Lista: [2, 4, 5, 8, 10]
-   Removendo 5:
-   Lista: [2, 4, 8, 10, _]
-   ```
-   ```c
-   int lista[5] = {2, 4, 5, 8, 10}; // Definindo um array com 5 valores
-   for (int i = 2; i < 4; i++) {     // Iniciando um loop para mover elementos, começando da posição do valor a ser removido
-       lista[i] = lista[i + 1];     // Cada elemento é substituído pelo próximo, movendo os valores para a esquerda
-   }
-   lista[4] = 0; // Limpa a última posição para indicar que não está sendo usada
-   ```
-   - Nesse exemplo, removemos o valor `5` e movemos os outros elementos para preencher o espaço.
-
-3. **🔍 Acesso:**
-
-   - Direto pelo índice. Exemplo: `Lista[3]` acessa o quarto elemento.
-   - **Complexidade:** O(1).
-   
-   **Exemplo em C:**
-   ```c
-   int valor = lista[2]; // Acessando o terceiro elemento do array (índice 2)
-   ```
-   - Aqui, acessamos o terceiro elemento da lista (índice 2).
-
-4. **🛡 Pesquisa:**
-
-   - Verifica cada elemento até encontrar o valor desejado.
-   - **Complexidade:** O(n).
-   
-   **Exemplo em C:**
-   ```c
-   int valor_procurado = 8; // Valor que queremos encontrar na lista
-   for (int i = 0; i < 5; i++) { // Percorrendo cada elemento do array
-       if (lista[i] == valor_procurado) { // Se o valor do array na posição i for igual ao valor procurado
-           printf("Valor encontrado na posição %d\n", i); // Imprime a posição onde o valor foi encontrado
-           break; // Encerra o loop após encontrar o valor
-       }
-   }
-   ```
-   - Este código procura pelo valor `8` na lista e imprime a posição onde ele foi encontrado.
-
-5. **🗒 Atualização:**
-
-   - Substitui o valor de um índice específico.
-   - **Complexidade:** O(1).
-
-   **Exemplo em C:**
-   ```c
-   lista[2] = 7; // Atualizando o valor na posição 2 para 7
-   ```
-   - Aqui, estamos atualizando o valor da posição 2 para `7`.
-
----
-
-### **9. Ponteiros e Movimentação em Listas Dinâmicas**
-
-#### **🔌 Ponteiros**
-
-- Um **ponteiro** é uma variável que guarda o endereço de memória de outra variável.
-
-- **Ponteiros em listas dinâmicas** permitem a criação de estruturas que podem crescer ou diminuir conforme a necessidade, diferente da LES que tem tamanho fixo.
-
-- **Exemplo em C:** Para criar um nó que armazena um valor e aponta para o próximo:
-
-  ```c
-  typedef struct No {
-      int valor;           // Campo que armazena o valor do nó
-      struct No* proximo;  // Ponteiro para o próximo nó na lista
-  } No;                    // Define o tipo 'No' para ser usado na lista
   ```
-  Aqui, `struct No* proximo` é um ponteiro que aponta para o próximo nó na lista.
+  Índice:    0   1   2   3   4
+  Valores:  10  20  30  40  50
+  ```
 
-#### **🚴 Movimentação dos Ponteiros**
+  Aqui, o valor no índice `2` é `30`, podendo ser acessado diretamente.
 
-- **Inserção em Listas Dinâmicas:**
+---
 
-  1. Crie um novo nó.
-  2. Atualize o ponteiro do nó anterior para apontar para o novo nó.
-  3. O novo nó deve apontar para o próximo nó (se houver).
+### **2. Como Calcular Propriedades Importantes**
 
-  - **Exemplo:**
+- **Inserção de Elemento na LES:**
+  - Para inserir um elemento no final da lista, o código em C pode ser o seguinte:
     ```c
-    No* novoNo = (No*) malloc(sizeof(No)); // Alocando memória para um novo nó
-    novoNo->valor = 10;                   // Definindo o valor do novo nó como 10
-    novoNo->proximo = atual->proximo;     // Faz o novo nó apontar para o próximo nó da lista
-    atual->proximo = novoNo;              // Atualiza o nó atual para apontar para o novo nó
+    void inserir(int lista[], int* tamanho, int valor) {
+        if (*tamanho < MAX_TAMANHO) {
+            lista[*tamanho] = valor;
+            (*tamanho)++;
+        } else {
+            printf("Erro: Lista cheia.\n");
+        }
+    }
     ```
-    **Explicação das Linhas de Código:**
-    - `No* novoNo = (No*) malloc(sizeof(No));`: Aloca memória para um novo nó e armazena o endereço em `novoNo`.
-    - `novoNo->valor = 10;`: Atribui o valor `10` ao campo `valor` do novo nó.
-    - `novoNo->proximo = atual->proximo;`: Faz o ponteiro `proximo` do novo nó apontar para o próximo nó na sequência.
-    - `atual->proximo = novoNo;`: Atualiza o ponteiro do nó atual para apontar para o novo nó, inserindo-o na lista.
+    - **Explicação:**
+      - `int lista[]`: A lista onde o elemento será inserido.
+      - `int* tamanho`: Ponteiro para o tamanho atual da lista.
+      - `int valor`: Valor a ser inserido.
+      - O elemento é adicionado na posição `*tamanho`, e depois o tamanho é incrementado.
 
-- **Remoção em Listas Dinâmicas:**
+---
 
-  1. Atualize o ponteiro do nó anterior para apontar para o nó seguinte ao que será removido.
-  2. Libere a memória do nó removido.
+### **3. Operações de Manutenção e Balanceamento**
 
-  - **Exemplo:**
+- **Remoção de Elemento em LES:**
+  - Para remover um elemento de um índice específico, todos os elementos posteriores devem ser deslocados para "tapar" o espaço vazio.
+  - **Exemplo de Código em C:**
     ```c
-    No* temp = atual->proximo;         // Cria um ponteiro temporário que aponta para o nó a ser removido
-    atual->proximo = temp->proximo;    // Faz o nó atual apontar para o próximo nó, removendo a referência ao nó intermediário
-    free(temp);                        // Libera a memória alocada para o nó removido
-   
+    void remover(int lista[], int* tamanho, int indice) {
+        if (indice >= 0 && indice < *tamanho) {
+            for (int i = indice; i < *tamanho - 1; i++) {
+                lista[i] = lista[i + 1];
+            }
+            (*tamanho)--;
+        } else {
+            printf("Erro: Índice inválido.\n");
+        }
+    }
+    ```
+    - **Explicação:**
+      - `int lista[]`: A lista de onde o elemento será removido.
+      - `int* tamanho`: Ponteiro para o tamanho atual da lista.
+      - `int indice`: Índice do elemento a ser removido.
+      - O laço `for` desloca todos os elementos após o índice especificado para a esquerda, reduzindo o tamanho da lista.
+
+---
+
+### **4. Correção de Desbalanceamentos ou Desajustes**
+
+- **Problemas de Inserção e Remoção:**
+  - Em listas estáticas, o tamanho fixo pode resultar em desperdício de memória (se a lista não for completamente preenchida) ou falta de espaço (se houver necessidade de adicionar mais elementos).
+  - **Exemplo Visual:**
+    - **Antes da Remoção:**
+      ```
+      Índice:    0   1   2   3   4
+      Valores:  10  20  30  40  50
+      ```
+    - **Depois de Remover o Índice 2:**
+      ```
+      Índice:    0   1   2   3
+      Valores:  10  20  40  50
+      ```
+      O valor `30` foi removido, e os elementos subsequentes foram deslocados.
+
+---
+
+### **5. Código para Inserção e Remoção de Elementos**
+
+- **Inserção e Remoção Comentadas:**
+  - Os códigos apresentados acima foram detalhados para que um iniciante possa compreender cada linha do processo, incluindo verificações de limites e o tratamento de erros, como índice inválido ou lista cheia.
+
+---
+
+### **6. Conclusão sobre Listas Estáticas Sequenciais (LES)**
+
+- **Importância:** As listas estáticas sequenciais são úteis quando a quantidade de dados a ser armazenada é conhecida previamente e não varia. Elas garantem acesso rápido a qualquer elemento, sendo ideais para situações em que o tamanho fixo não é uma limitação.
+- **Limitações:** A principal limitação é a falta de flexibilidade em relação ao tamanho, além da ineficiência na inserção e remoção de elementos no meio da lista, que requerem deslocamentos.
+- **Eficiência:** A simplicidade da implementação e a eficiência no acesso direto tornam as LES uma opção adequada para diversas aplicações em que o tamanho da lista é previamente definido e estável.
+
+---
 

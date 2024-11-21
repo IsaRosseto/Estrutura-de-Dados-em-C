@@ -1,4 +1,4 @@
-### **Resumo Completo da Aula 11 - Balanceamento de Árvores Binárias de Busca**
+### **Resumo Completo da Aula 11 - Balanceamento de Árvores Binárias de Busca.**
 
 ---
 

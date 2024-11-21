@@ -45,6 +45,14 @@
       return 0;
   }
   ```
+- **Explicação Linha a Linha:**
+  - `int count = 0;`: Inicializa o contador que será usado para contar quantas vezes o laço é executado.
+  - `int i = 1;`: Inicializa a variável `i` com o valor 1, que será usada para controlar o laço.
+  - `while(i <= 1000)`: O laço executa enquanto `i` for menor ou igual a 1000. Como `i` começa em 1 e é incrementado até 1000, o laço executa exatamente 1000 vezes.
+  - `printf("%d\n", i);`: Imprime o valor atual de `i` a cada iteração do laço.
+  - `i = i + 1;`: Incrementa `i` em 1 a cada iteração.
+  - `count = count + 1;`: Incrementa `count` em 1 a cada iteração para contar quantas vezes o laço executou.
+  - `printf("%d\n", count);`: Imprime o valor final de `count`, que será 1000.
 - **Complexidade:**
   - O laço executa 1000 vezes, portanto, a complexidade é **O(n)**, onde **n = 1000**.
 
@@ -68,6 +76,16 @@
       return 0;
   }
   ```
+- **Explicação Linha a Linha:**
+  - `int n;`: Declara a variável `n` que irá armazenar o valor de entrada.
+  - `scanf("%d", &n);`: Lê um valor inteiro do usuário e armazena em `n`.
+  - `int count = 0;`: Inicializa o contador para contar as iterações do laço.
+  - `int i = 1;`: Inicializa a variável `i` com o valor 1 para controlar o laço.
+  - `while(i <= n)`: O laço executa enquanto `i` for menor ou igual a `n`. Portanto, o número de iterações depende do valor de `n` fornecido pelo usuário.
+  - `printf("%d\n", i);`: Imprime o valor de `i` a cada iteração.
+  - `i = i + 1;`: Incrementa `i` em 1 a cada iteração.
+  - `count = count + 1;`: Incrementa `count` para contar as iterações.
+  - `printf("%d\n", count);`: Imprime o valor final de `count`, que será igual ao valor de `n`.
 - **Complexidade:**
   - O laço repete **n** vezes, portanto, a função de complexidade é **f(n) = n**.
 
@@ -88,15 +106,22 @@
       return 0;
   }
   ```
+- **Explicação Linha a Linha:**
+  - `int v[] = {5, 7, 9, 6, 2, 4, 7, 8, 10, 1};`: Declara um vetor `v` com 10 elementos inteiros.
+  - `int max = v[0];`: Inicializa a variável `max` com o primeiro valor do vetor, assumindo que este seja o maior inicialmente.
+  - `for(int i = 1; i < 10; i++)`: Inicia um laço para percorrer o vetor a partir do segundo elemento (índice 1) até o último (índice 9).
+  - `if(v[i] > max)`: Verifica se o elemento atual do vetor é maior que o valor armazenado em `max`.
+  - `max = v[i];`: Se a condição for verdadeira, atualiza `max` com o novo valor maior.
+  - `printf("%d\n", max);`: Imprime o maior valor encontrado no vetor.
 - **Complexidade:**
   - No pior caso, percorre todos os 9 elementos restantes do vetor, portanto, a complexidade é **f(n) = n - 1**.
 
 ---
 
-### **5. Notção Assintótica**
+### **5. Notação Assintótica**
 
 - **O que é?** Uma forma de descrever o crescimento de uma função, permitindo classificar a eficiência de algoritmos sem precisar de valores exatos.
-- **Principais Notções:**
+- **Principais Notações:**
   - **O(f(n))**: Limite superior do crescimento (pior caso).
   - **Ω(f(n))**: Limite inferior (melhor caso).
   - **Θ(f(n))**: Crescimento equivalente (caso médio).
